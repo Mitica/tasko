@@ -1,0 +1,26 @@
+id: tencuire1
+name: Tencuirea interioară cu mortar de ciment
+days: 10
+prev: sol
+team:
+  - tata
+  - dumitru
+  - sergiu
+
+tasks:
+  -
+    id: tencuire1-create-mortar
+    name: "Crearea mortar: ciment, nisip"
+  -
+    id: tencuire1-nivepare
+    name: Calcul nivel și lasare profiluri metalice
+    team:
+      - tata
+      - sergiu
+  -
+    id: tencuire1-tencuire
+    name: Tencuire pereți
+    team:
+      - tata
+      - sergiu
+      - dumitru

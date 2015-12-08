@@ -1,0 +1,21 @@
+doctype html
+html(lang='ro')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title= site.title
+    if (site.description)
+      meta(name='description', content=site.head.description)
+    link(type='text/css', rel='stylesheet', href='assets/bootstrap/css/bootstrap.min.css')
+    link(type='text/css', rel='stylesheet', href='assets/css/page.css')
+  body
+    #page
+      .container-fluid
+        #page-header.clearfix
+
+        #page-content.clearfix
+          each task in tasks
+            include ./task
+
+        #page-footer.clearfix
