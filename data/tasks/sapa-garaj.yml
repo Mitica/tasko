@@ -1,0 +1,28 @@
+id: sapa-garaj
+name: "Garaj: Șapă de beton"
+description: "Turnare șapă/strat de beton gros."
+days: 1
+prev: sapa-parter1
+team:
+  - tata
+  - dumitru
+  - sergiu
+
+tasks:
+  -
+    id: sapa-garaj-izolare
+    name: "Montarea stratului de izolare: termo și hidro"
+  -
+    id: sapa-garaj-create-beton
+    name: "Creare beton: ciment, nisip, pietriș, apă"
+    team:
+      - dumitru
+      - sergiu
+  -
+    id: sapa-garaj-nivepare
+    name: "Calcul nivel și plasare profiluri metalice"
+    team:
+      - tata
+  -
+    id: sapa-garaj-turnare
+    name: "Turnare beton și nivelare"

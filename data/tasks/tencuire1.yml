@@ -1,6 +1,7 @@
 id: tencuire1
-name: Tencuirea interioară cu mortar de ciment
-days: 10
+name: Tencuire interior
+description: Îndreparea pereților interiori cu un strat de mortar/ciment.
+days: 12
 prev: sol
 team:
   - tata
@@ -10,17 +11,16 @@ team:
 tasks:
   -
     id: tencuire1-create-mortar
-    name: "Crearea mortar: ciment, nisip"
+    name: "Creare mortar: ciment, nisip, apă"
+    team:
+      - dumitru
+      - sergiu
   -
     id: tencuire1-nivepare
-    name: Calcul nivel și lasare profiluri metalice
+    name: Calcul nivel și plasare profiluri metalice
     team:
       - tata
       - sergiu
   -
     id: tencuire1-tencuire
     name: Tencuire pereți
-    team:
-      - tata
-      - sergiu
-      - dumitru

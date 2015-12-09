@@ -1,0 +1,19 @@
+id: canalizare
+name: "Instalare canalizare"
+description: "Instalare rețea de canalizare și apă. Testare."
+prev: canale-retea
+team:
+  - tata
+  - dumitru
+  - sergiu
+
+tasks:
+  -
+    id: canalizare-canalizare
+    name: "Montarea rețelei de canalizare"
+    days: 1
+  -
+    id: canalizare-apa
+    name: "Montarea rețelei de apă rece și caldă"
+    days: 2
+    prev: canalizare-canalizare

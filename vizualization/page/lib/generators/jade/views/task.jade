@@ -3,7 +3,14 @@
     .col-sm-4
       .task-index
         h1= taskIndex+1
-        h6= task.startDate.locale('ro').format('MMMM')
+        - var startMonth = task.startDate.locale('ro').format('MMMM')
+        - var endMonth = task.endDate.locale('ro').format('MMMM')
+        if (startMonth === endMonth)
+          h6= task.startDate.locale('ro').format('MMMM')
+        else
+          h6= startMonth
+            |  -  
+            = endMonth
     .col-sm-8
       h1.task-title= task.name
       .task-details.clearfix
@@ -13,6 +20,8 @@
             li
               img(src=member.picture, alt=member.id)
         .task-time.text-muted
+          span.task-days.label.label-success= task.days
+          |  zile lucrătoare;  
           | Perioadă: 
           if (task.days > 1)
             time= task.startDate.locale('ro').format('D MMMM')
@@ -26,8 +35,6 @@
             time= task.startDate.locale('ro').format('D MMMM')
               | ,  
               = task.startDate.locale('ro').format('dddd')
-          | ; Zile lucrătoare: 
-          span.task-days.label.label-success= task.days
       if (task.description)
         .task-summary.well.well-sm= task.description
   br

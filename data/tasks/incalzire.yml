@@ -1,0 +1,19 @@
+id: incalzire
+name: "Instalare încălzire"
+description: "Instalare rețele de încălzire. Testare."
+prev: canalizare
+team:
+  - tata
+  - dumitru
+  - sergiu
+
+tasks:
+  -
+    id: incalzire-tevi
+    name: "Montarea țevi pe podea și pereți."
+    days: 3
+  -
+    id: incalzire-cazan
+    name: "Montare cazan-gaz"
+    days: 2
+    prev: incalzire-tevi

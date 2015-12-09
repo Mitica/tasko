@@ -76,10 +76,12 @@ function getTasksTeam(tasks) {
 
 function getTaskTeam(task) {
 	if (task.tasks) {
-		var team = [];
-		task.tasks.forEach(function(t) {
-			team = team.concat(getTaskTeam(t));
-		});
+		var team = task.team || [];
+		if (!task.team) {
+			task.tasks.forEach(function(t) {
+				team = team.concat(getTaskTeam(t));
+			});
+		}
 
 		team = _.sortBy(_.uniq(team));
 
@@ -99,6 +101,7 @@ function normalizeTask(task, tasksMap) {
 
 	if (task.prev) {
 		task.prevTask = tasksMap[task.prev];
+		task.prevTask.nextTask = task;
 	}
 
 	// setTaskDates(config, task);
@@ -117,6 +120,13 @@ function normalizeTasks(tasks, tasksMap) {
 function addDays(calendar, date, days) {
 	days = days || 0;
 	var result = calendar.date(date);
+
+	if (days === 0) {
+		while (!calendar.isWorkingDate(result)) {
+			result.add(1, 'days');
+		}
+	}
+
 	while (days > 0) {
 		result.add(1, 'days');
 		if (calendar.isWorkingDate(result)) {
@@ -127,7 +137,7 @@ function addDays(calendar, date, days) {
 }
 
 function setTaskDates(calendar, task) {
-	if (!task.parent) {
+	if (!task.parent && !task.startDate) {
 		if (!task.prevTask) {
 			// console.log('!prevTask', task.id);
 			task.startDate = calendar.startDate;
@@ -138,6 +148,9 @@ function setTaskDates(calendar, task) {
 				task.startDate = addDays(calendar, task.prevTask.endDate, 1);
 				task.endDate = addDays(calendar, task.startDate, task.days - 1);
 			}
+		}
+		if (task.nextTask && !task.nextTask.startDate) {
+			setTaskDates(calendar, task.nextTask);
 		}
 	}
 
@@ -173,6 +186,8 @@ module.exports = function(data) {
 	normalizeData(data, tasks, tasksMap);
 	tasks = normalizeTasks(tasks, tasksMap);
 
+	// console.log(tasks);
+
 	var model = {
 		get: function() {
 			return data;
@@ -189,11 +204,16 @@ module.exports = function(data) {
 			return model.getTasksByLevel(1);
 		},
 		setDates: function(calendar) {
-			setTasksDates(calendar, model.getLevelFirstTasks());
+			var list = model.getLevelFirstTasks();
+			var initialList = list.filter(function(item) {
+				return !item.prev;
+			});
+			setTasksDates(calendar, initialList);
+			setTasksDates(calendar, list);
 		},
 		sort: function(list) {
 			list = list || model.getLevelFirstTasks();
-			return list.sort(function(item) {
+			return _.sortBy(list, function(item) {
 				return item.startDate.format('YYYY-MM-DD');
 			});
 		}

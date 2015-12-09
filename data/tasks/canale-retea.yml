@@ -1,0 +1,19 @@
+id: canale-retea
+name: "Găuri și canale pentru rețele"
+description: "Prin pereți creăm toate găurile și canalele necesare pentru instalarea rețelelor: apă, canalizare, ventilare, încălzire și electricitate."
+prev: sapa-garaj
+team:
+  - tata
+  - dumitru
+  - sergiu
+
+tasks:
+  -
+    id: canale-retea-masurari
+    name: "Măsurări și marcare locuri de tăiat și spart."
+    days: 1
+  -
+    id: canale-retea-create
+    name: "Creare canale de trecere pentru tețele"
+    days: 2
+    prev: canale-retea-masurari

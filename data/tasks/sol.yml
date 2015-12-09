@@ -1,10 +1,11 @@
 id: sol
-name: Lucrări de sol parter
+name: Lucrări de sol
+description: "Canalizare, apă, nivelare sol."
 
 tasks:
   -
     id: sol-canalizare
-    name: Lucrări de canaliz prin sol
+    name: Lucrări de canalizare prin sol
     description: Plasarea sondei principale de canalizare prin sol la parter.
     days: 1
     team:
@@ -23,7 +24,7 @@ tasks:
       - sergiu
   -
     id: sol-nivelare
-    name: Marcare nivel și Nivelare sol parter
+    name: Marcare nivel și îndreptare sol parter
     days: 1
     prev: sol-apa
     team:
