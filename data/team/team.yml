@@ -7,7 +7,9 @@
 -
   id: sergiu
   name: Sergiu
+  picture: https://s3-eu-west-1.amazonaws.com/srsvc/utils/images/sergiu.jpg
 
 -
   id: tata
   name: Tata
+  picture: https://s3-eu-west-1.amazonaws.com/srsvc/utils/images/tata.jpg

@@ -1,1 +1,36 @@
-h1= task.name
+.task
+  .row
+    .col-sm-4
+      .task-index
+        h1= taskIndex+1
+        h6= task.startDate.locale('ro').format('MMMM')
+    .col-sm-8
+      h1.task-title= task.name
+      .task-details.clearfix
+        ul.task-team.list-inline
+          each item in task.team
+            - var member = tasko.team.getMember(item)
+            li
+              img(src=member.picture, alt=member.id)
+        .task-time.text-muted
+          | Perioadă: 
+          if (task.days > 1)
+            time= task.startDate.locale('ro').format('D MMMM')
+              | ,  
+              = task.startDate.locale('ro').format('dddd')
+            |  -  
+            time= task.endDate.locale('ro').format('D MMMM')
+              | ,  
+              = task.endDate.locale('ro').format('dddd')
+          else
+            time= task.startDate.locale('ro').format('D MMMM')
+              | ,  
+              = task.startDate.locale('ro').format('dddd')
+          | ; Zile lucrătoare: 
+          span.task-days.label.label-success= task.days
+      if (task.description)
+        .task-summary.well.well-sm= task.description
+  br
+  if (task.tasks)
+    each subtask, subtaskIndex in task.tasks
+      include ./subtask

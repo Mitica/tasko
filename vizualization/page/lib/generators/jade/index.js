@@ -34,7 +34,8 @@ module.exports = function(tasko, file) {
 	var tasks = tasko.tasks.sort();
 	var model = {
 		site: {},
-		tasks: tasks
+		tasks: tasks,
+		tasko: tasko
 	};
 
 	return renderFile(path.join(__dirname, './views/layout.jade'), model)

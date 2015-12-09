@@ -15,7 +15,9 @@ html(lang='ro')
         #page-header.clearfix
 
         #page-content.clearfix
-          each task in tasks
+          each task, taskIndex in tasks
             include ./task
+            if (taskIndex<tasks.length-1)
+              div(style='page-break-after: always;')
 
         #page-footer.clearfix

@@ -1,0 +1,101 @@
+.task {
+    padding-right: 30px;
+    margin-bottom: 20px;
+}
+
+.task-details {
+    font-size: 90%;
+}
+
+.task-details time {
+    border-bottom: 1px dashed #555;
+    color: #555;
+}
+
+.task-index {
+    text-align: center;
+}
+
+.task-index h1 {
+    display: inline-block;
+    margin: 16px auto 30px auto;
+    border-radius: 100%;
+    background-color: #eee;
+    padding: 5px 20px;
+    font-size: 340%;
+}
+
+.task-team {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.task-team img {
+    height: 42px;
+    width: 42px;
+    border-radius: 3px;
+    background-color: #ddd;
+}
+
+.task-time {
+    display: inline-block;
+    padding-top: 10px;
+}
+
+.task-summary {
+    display: inline-block;
+}
+
+.subtask {
+    font-size: 90%;
+    margin-bottom: 20px;
+    margin-left: 40px;
+}
+
+.subtask .task-team img {
+    height: 26px;
+    width: 26px;
+}
+
+.subtask .task-time {
+    margin-top: 4px;
+}
+
+.calendar {
+    margin: 24px 20px 12px 20px;
+    color: #444;
+}
+
+.calendar .header .calendar-cel {
+    border-bottom-width: 4px;
+}
+
+.calendar-cel {
+    display: inline-block;
+    text-align: center;
+    height: 32px;
+    width: 32px;
+    border: 1px solid #ddd;
+    line-height: 32px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    position: relative;
+}
+
+.calendar-cel.free-day {
+    background-color: #eee;
+    color: #a94442;
+}
+
+.calendar-cel.working-day {
+    border-bottom: 4px solid #5cb85c;
+}
+
+.calendar-cel.partial-day {
+    border-bottom: 4px solid #f0ad4e;
+}
+
+.calendar-cel.no-day {
+    border-color: #eee;
+    color: #f3f3f3;
+}

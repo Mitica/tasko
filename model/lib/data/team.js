@@ -4,12 +4,20 @@ var utils = require('../utils');
 var Promise = utils.Promise;
 var _ = utils._;
 
-module.exports = function(data) {
-	data = _.uniq(data, 'id');
+module.exports = function(members) {
+	members = _.uniq(members, 'id');
+
+	var membersMap = {};
+	members.forEach(function(member) {
+		membersMap[member.id] = member;
+	});
 
 	return {
 		get: function() {
-			return data;
+			return members;
+		},
+		getMember: function(id) {
+			return membersMap[id];
 		}
 	};
 

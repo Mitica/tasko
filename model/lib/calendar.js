@@ -23,11 +23,14 @@ module.exports = function(data) {
 			return config.time.workingDays.indexOf(weekDay) > -1;
 		},
 		isWorkingDate: function(date) {
-			var working = model.isWorkingDay(date.day()) && freeDatesFormats.indexOf(date.format('YYYY-MM-DD')) < 0;
-			if (!working) {
-				console.log(date.toString(), 'is NOT working date');
+			return model.isWorkingDay(date.day()) && freeDatesFormats.indexOf(date.format('YYYY-MM-DD')) < 0;
+		},
+		isPartialWorkingDate: function(date) {
+			var day = date.isoWeekday();
+			if (config.time.workingHoursByDay) {
+				return !!config.time.workingHoursByDay[day];
 			}
-			return working;
+			return false;
 		},
 		date: moment
 	};

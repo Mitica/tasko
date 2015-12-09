@@ -45,17 +45,33 @@ function getTaskLevel(task, tasksMap) {
 }
 
 function getTaskDays(task) {
+	if (task.parent) {
+		if (!task.days) {
+			return getTaskDays(task.parent);
+		}
+	}
 	if (task.days) {
 		return task.days;
 	}
 	if (task.tasks) {
 		var days = 0;
 		task.tasks.forEach(function(t) {
-			days += getTaskDays(t);
+			t.days = getTaskDays(t);
+			days += t.days;
 		});
 		return days;
 	}
 	return 1;
+}
+
+function getTasksTeam(tasks) {
+
+	var team = [];
+	tasks.forEach(function(t) {
+		team = team.concat(getTaskTeam(t));
+	});
+
+	return _.sortBy(_.uniq(team));
 }
 
 function getTaskTeam(task) {
@@ -65,9 +81,15 @@ function getTaskTeam(task) {
 			team = team.concat(getTaskTeam(t));
 		});
 
-		return _.uniq(team);
+		team = _.sortBy(_.uniq(team));
+
+		task.tasks.forEach(function(t) {
+			t.team = t.team || team;
+		});
+
+		return team;
 	}
-	return task.team || [];
+	return _.sortBy(task.team || []);
 }
 
 function normalizeTask(task, tasksMap) {
@@ -93,6 +115,7 @@ function normalizeTasks(tasks, tasksMap) {
 }
 
 function addDays(calendar, date, days) {
+	days = days || 0;
 	var result = calendar.date(date);
 	while (days > 0) {
 		result.add(1, 'days');
@@ -104,26 +127,30 @@ function addDays(calendar, date, days) {
 }
 
 function setTaskDates(calendar, task) {
-	if (!task.parent && !task.prevTask) {
-		task.startDate = calendar.startDate;
-		task.endDate = addDays(calendar, task.startDate, task.days);
-	} else {
-		if (task.prevTask) {
+	if (!task.parent) {
+		if (!task.prevTask) {
+			// console.log('!prevTask', task.id);
+			task.startDate = calendar.startDate;
+			task.endDate = addDays(calendar, task.startDate, task.days - 1);
+		} else {
 			if (task.prevTask.endDate) {
-				task.startDate = task.prevTask.endDate;
+				// console.log('prevTask', task.prevTask.endDate.toString(), task.id);
 				task.startDate = addDays(calendar, task.prevTask.endDate, 1);
-				task.endDate = addDays(calendar, task.startDate, task.days);
+				task.endDate = addDays(calendar, task.startDate, task.days - 1);
 			}
 		}
 	}
 
 	if (task.tasks) {
-		var prevTask = task;
 		for (var i = 0; i < task.tasks.length; i++) {
 			var t = task.tasks[i];
-			t.startDate = addDays(calendar, prevTask.endDate, 1);
-			t.endDate = addDays(calendar, t.startDate, t.days);
-			prevTask = t;
+			if (t.prevTask) {
+				t.startDate = addDays(calendar, t.prevTask.endDate, 1);
+			} else {
+				t.startDate = addDays(calendar, task.startDate);
+			}
+			t.endDate = addDays(calendar, t.startDate, t.days - 1);
+			// console.log('t', t.id);
 			if (t.tasks) {
 				setTaskDates(config, t);
 			}
