@@ -1,0 +1,32 @@
+#intro
+  .intro-header
+    h1=mainTask.name
+    h4=mainTask.startDate.locale('ro').format('DD MMMM')
+      |  -  
+      = mainTask.endDate.locale('ro').format('DD MMMM')
+  br
+  br
+  .row
+    .col-sm-3.col-sm-offset-3.intro-team
+      h3 Echipă
+      ul
+        each item in mainTask.team
+          li
+            span.name= item.name
+            span.picture
+              img(src=item.picture)
+    .col-sm-3.intro-stats
+      h3 Ai curaj?
+      h4
+        span.label.label-success= mainTask.days
+        |  zile de lucru
+      h4
+        span.label.label-success= mainTask.tasks.length
+        |  sarcini
+      h4
+        span.label.label-success= tasko.tasks.getTasks().length
+        |  lucruri de făcur
+      h4
+        span.label.label-success= mainTask.team.length
+        |  eroi
+

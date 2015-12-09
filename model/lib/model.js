@@ -14,6 +14,8 @@ function createModel(data) {
 
 	model.tasks.setDates(model.calendar);
 
+	model.config.init(model);
+
 	return model;
 }
 

@@ -35,7 +35,8 @@ module.exports = function(tasko, file) {
 	var model = {
 		site: {},
 		tasks: tasks,
-		tasko: tasko
+		tasko: tasko,
+		mainTask: tasko.config.getMainTask()
 	};
 
 	return renderFile(path.join(__dirname, './views/layout.jade'), model)

@@ -1,0 +1,17 @@
+id: bucatarie-esential
+name: Pregătire bucătărie
+description: "Pregătire bucătărie pentru utilizare temporară"
+prev: podea
+days: 1
+team:
+  - tata
+  - dumitru
+  - sergiu
+
+tasks:
+  -
+    id: bucatarie-esential-lavoar
+    name: "Montare lavoar temporar"
+  -
+    id: bucatarie-esential-aragaz
+    name: "Montare aragaz provizoriu"

@@ -15,7 +15,8 @@ html(lang='ro')
     #page
       .container-fluid
         #page-header.clearfix
-
+          include ./intro
+          div(style='page-break-after: always;')
         #page-content.clearfix
           each task, taskIndex in tasks
             include ./task

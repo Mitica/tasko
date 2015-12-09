@@ -1,31 +1,31 @@
 'use strict';
 
 var utils = require('./utils');
+var Promise = utils.Promise;
 var taskoModel = require('tasko-model');
 var path = require('path');
-var md = require('./generators/md');
 var jade = require('./generators/jade');
 var fs = require('fs');
-var marked = require('marked');
 
-function generateMarkdown(tasko) {
-	var mdFile = path.join(__dirname, '../out/test.md');
-	var htmlFile = path.join(__dirname, '../out/test.html');
-	return md(tasko, mdFile)
-		.then(function() {
-			var html = marked(fs.readFileSync(mdFile, 'utf8'));
-			fs.writeFileSync(htmlFile, html);
-		});
-}
-
-function generateJade(tasko) {
-	var htmlFile = path.join(__dirname, '../out/test.html');
+function generateJade(tasko, name) {
+	var htmlFile = path.join(__dirname, '../out/' + name + '/index.html');
 	return jade(tasko, htmlFile);
 }
 
-exports.generate = function(location) {
-	location = location || path.join(__dirname, '../../../data');
-	return taskoModel(location).then(generateJade);
+exports.generate = function(names) {
+	if (!names) {
+		names = ['interior'];
+		if (process.argv.length > 2) {
+			names = [process.argv[2]];
+		}
+	}
+	return Promise.each(names, function(name) {
+		var location = path.join(__dirname, '../../../data/' + name);
+		return taskoModel(location)
+			.then(function(tasko) {
+				return generateJade(tasko, name);
+			});
+	});
 };
 
 exports.generate();
