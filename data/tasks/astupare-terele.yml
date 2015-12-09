@@ -1,0 +1,17 @@
+id: astupare-terele
+name: "Astupare canale rețele"
+description: "Astupăm canalele de rețele: apa, canalizare, electricitate, încălzire"
+days: 2
+prev: test-retele
+team:
+  - tata
+  - dumitru
+  - sergiu
+
+tasks:
+  -
+    id: astupare-terele-mortar
+    name: "Astupare rețele cu mortar"
+  -
+    id: astupare-terele-panouri
+    name: "Creare, fixare panouri..."

@@ -2,7 +2,7 @@ id: sapa-mansarda
 name: "Mansardă: Turnăm șapa de mortar"
 description: "Turnare șapă/strat de beton la mansardă"
 days: 2
-prev: test-retele
+prev: astupare-terele
 team:
   - tata
   - dumitru

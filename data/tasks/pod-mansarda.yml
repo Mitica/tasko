@@ -1,0 +1,24 @@
+id: pod-mansarda
+name: Pod mansardă
+description: "Montare pod mansardă"
+prev: sapa-parter2
+team:
+  - tata
+  - dumitru
+  - sergiu
+
+tasks:
+  -
+    id: pod-mansarda-masuri
+    name: "Măsurări"
+    days: 1
+  -
+    id: pod-mansarda-casa
+    name: Izolare pod mansardă casă
+    prev: pod-mansarda-masuri
+    days: 7
+  -
+    id: pod-mansarda-garaj
+    name: Izolare pod garaj
+    prev: pod-mansarda-casa
+    days: 2

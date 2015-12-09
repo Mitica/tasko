@@ -4,14 +4,9 @@
       .task-index
         .task-index-line
         h1= taskIndex+1
-        - var startMonth = task.startDate.locale('ro').format('MMMM')
-        - var endMonth = task.endDate.locale('ro').format('MMMM')
-        if (startMonth === endMonth)
-          h6= task.startDate.locale('ro').format('MMMM')
-        else
-          h6= startMonth
-            |  -  
-            = endMonth
+        h6= task.startDate.locale('ro').format('D MMMM')
+          |  -  
+          time= task.endDate.locale('ro').format('D MMMM')
     .col-sm-8
       h1.task-title= task.name
       +taskDetails(task)

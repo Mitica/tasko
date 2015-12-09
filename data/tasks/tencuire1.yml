@@ -1,5 +1,5 @@
 id: tencuire1
-name: Tencuire interior
+name: Tencuire interior (strat 1)
 description: Îndreparea pereților interiori cu un strat de mortar/ciment.
 days: 12
 prev: sol
@@ -23,4 +23,7 @@ tasks:
       - sergiu
   -
     id: tencuire1-tencuire
-    name: Tencuire pereți
+    name: Tencuire pereți interior
+  -
+    id: tencuire1-tencuire-garaj
+    name: Tencuire pereți garaj

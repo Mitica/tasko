@@ -110,6 +110,9 @@ function normalizeTasks(tasks, tasksMap) {
 	tasks.forEach(function(task) {
 		if (task.prev) {
 			task.prevTask = tasksMap[task.prev];
+			if (!task.prevTask) {
+				throw new Error('Invalid task id: ' + task.prev);
+			}
 			task.prevTask.nextTask = task;
 		}
 	});

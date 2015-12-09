@@ -1,0 +1,31 @@
+id: gletuire1-parter
+name: Gletuire parter (strat 1)
+description: "Îndreparea pereților interiori cu un strat de mortar fin(glet): KNAUF."
+prev: gletuire1-mansarda
+days: 14
+team:
+  - tata
+  - dumitru
+  - sergiu
+
+tasks:
+  -
+    id: gletuire1-parter-create-mortar
+    name: "Creare mortar: din aditiv special (KNAUF, etc.)"
+    team:
+      - dumitru
+      - sergiu
+  -
+    id: gletuire1-parter-tavan
+    name: Gletuire tavan
+    days: 3
+  -
+    id: gletuire1-parter-pereti
+    name: Gletuire pereți
+    prev: gletuire1-parter-tavan
+    days: 9
+  -
+    id: gletuire1-parter-garaj
+    name: Gletuire garaj
+    prev: gletuire1-parter-pereti
+    days: 2

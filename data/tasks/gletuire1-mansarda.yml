@@ -1,0 +1,26 @@
+id: gletuire1-mansarda
+name: Gletuire mansarda (strat 1)
+description: "Îndreparea pereților interiori cu un strat de mortar fin(glet): KNAUF."
+prev: pod-mansarda
+days: 12
+team:
+  - tata
+  - dumitru
+  - sergiu
+
+tasks:
+  -
+    id: gletuire1-mansarda-create-mortar
+    name: "Creare mortar: din aditiv special (KNAUF, etc.)"
+    team:
+      - dumitru
+      - sergiu
+  -
+    id: gletuire1-mansarda-tavan
+    name: Gletuire tavan
+    days: 3
+  -
+    id: gletuire1-mansarda-pereti
+    name: Gletuire pereți
+    prev: gletuire1-mansarda-tavan
+    days: 9

@@ -1,0 +1,28 @@
+id: sapa-parter2
+name: "Parter: Șapă de beton (strat 2)"
+description: "Turnare șapă/strat de beton la parter al 2-lea strat."
+days: 3
+prev: sapa-mansarda
+team:
+  - tata
+  - dumitru
+  - sergiu
+
+tasks:
+  -
+    id: sapa-parter1-izolare
+    name: "Montarea stratului de izolare: termo și hidro"
+  -
+    id: sapa-parter1-create-beton
+    name: "Creare beton: ciment, nisip, apă"
+    team:
+      - dumitru
+      - sergiu
+  -
+    id: sapa-parter1-nivepare
+    name: "Calcul nivel și plasare profiluri metalice"
+    team:
+      - tata
+  -
+    id: sapa-parter1-turnare
+    name: "Turnare beton și nivelare"
