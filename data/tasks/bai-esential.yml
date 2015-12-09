@@ -1,0 +1,34 @@
+id: bai-esential
+name: Lucrări esențiale în băi
+description: "Instalare closeturi, faianță, gresie, lavoare"
+prev: gletuire1-parter
+team:
+  - tata
+  - dumitru
+  - sergiu
+
+tasks:
+  -
+    id: bai-esential-pereti
+    name: "Montare gresie și faianță în băi"
+    days: 6
+  -
+    id: bai-esential-panouri
+    name: Montare panouri în pereți
+    prev: bai-esential-pereti
+    days: 1
+  -
+    id: bai-esential-closet
+    name: Montare closeturi și lavoare
+    prev: bai-esential-panouri
+    days: 4
+  -
+    id: bai-esential-dus
+    name: Montare duș
+    prev: bai-esential-closet
+    days: 2
+  -
+    id: bai-esential-vana
+    name: Montare vană de baie
+    prev: bai-esential-dus
+    days: 2

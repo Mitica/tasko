@@ -1,6 +1,10 @@
 id: sol
 name: Lucrări de sol
 description: "Canalizare, apă, nivelare sol."
+team:
+  - tata
+  - dumitru
+  - sergiu
 
 tasks:
   -
@@ -8,26 +12,14 @@ tasks:
     name: Lucrări de canalizare prin sol
     description: Plasarea sondei principale de canalizare prin sol la parter.
     days: 1
-    team:
-      - tata
-      - dumitru
-      - sergiu
   -
     id: sol-apa
     name: Aducerea țevei de apă până în casă.
     description: Săpare șanț. Montare țavă la panoul de apa în baie la parter.
     days: 1
     prev: sol-canalizare
-    team:
-      - tata
-      - dumitru
-      - sergiu
   -
     id: sol-nivelare
     name: Marcare nivel și îndreptare sol parter
     days: 1
     prev: sol-apa
-    team:
-      - tata
-      - sergiu
-      - dumitru

@@ -22,7 +22,7 @@ h1.task-title {
 }
 
 .task-index-line {
-    height:4px;
+    height: 4px;
     background-color: #ddd;
     position: absolute;
     top: 36%;
@@ -67,15 +67,20 @@ h1.task-title {
     margin-bottom: 20px;
 }
 
+.subtask .task-details {
+    font-size: 100%;
+}
+
 .subtask .task-team img {
     height: 26px;
     width: 26px;
 }
 
 .calendar {
-    margin: 24px 0px 12px 0px;
+    margin: 32px 0px;
     color: #444;
     text-align: center;
+    font-size: 90%;
 }
 
 .calendar-inner {

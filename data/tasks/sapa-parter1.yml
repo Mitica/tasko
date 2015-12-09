@@ -1,8 +1,8 @@
 id: sapa-parter1
-name: "Parter: Șapă de beton (strat 1)"
+name: "Șapă parter (strat 1)"
 description: "Turnare șapă/strat de beton la parter primul strat."
 days: 3
-prev: tencuire1
+prev: tencuire-parter
 team:
   - tata
   - dumitru

@@ -1,0 +1,19 @@
+id: usi
+name: Montare uși
+description: "Montarea ușilor de intrior și de la intrare"
+prev: geamuri
+team:
+  - tata
+  - dumitru
+  - sergiu
+
+tasks:
+  -
+    id: usi-interior
+    name: "Montare uși interior"
+    days: 2
+  -
+    id: usi-intrare
+    name: "Montare ușă intrare"
+    prev: usi-interior
+    days: 1

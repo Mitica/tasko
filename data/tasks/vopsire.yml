@@ -1,0 +1,19 @@
+id: vopsire
+name: Vopsire
+description: "Vopsirea pereților cu vopsea de interior: fon"
+prev: gletuire2-parter
+team:
+  - tata
+  - dumitru
+  - sergiu
+
+tasks:
+  -
+    id: vopsire-mansarda
+    name: "Vopsire pereți și tavan la mansardă"
+    days: 2
+  -
+    id: vopsire-parter
+    name: "Vopsire pereți și tavan la parter"
+    prev: vopsire-mansarda
+    days: 2

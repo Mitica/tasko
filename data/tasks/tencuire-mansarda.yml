@@ -1,7 +1,7 @@
-id: tencuire1
-name: Tencuire interior (strat 1)
+id: tencuire-mansarda
+name: Tencuire mansardă
 description: Îndreparea pereților interiori cu un strat de mortar/ciment.
-days: 12
+days: 6
 prev: sol
 team:
   - tata
@@ -10,20 +10,17 @@ team:
 
 tasks:
   -
-    id: tencuire1-create-mortar
+    id: tencuire-mansarda-create-mortar
     name: "Creare mortar: ciment, nisip, apă"
     team:
       - dumitru
       - sergiu
   -
-    id: tencuire1-nivepare
+    id: tencuire-mansarda-nivelare
     name: Calcul nivel și plasare profiluri metalice
     team:
       - tata
       - sergiu
   -
-    id: tencuire1-tencuire
-    name: Tencuire pereți interior
-  -
-    id: tencuire1-tencuire-garaj
-    name: Tencuire pereți garaj
+    id: tencuire-mansarda-pereti
+    name: Tencuire pereți

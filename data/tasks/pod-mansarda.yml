@@ -16,7 +16,7 @@ tasks:
     id: pod-mansarda-casa
     name: Izolare pod mansardă casă
     prev: pod-mansarda-masuri
-    days: 7
+    days: 5
   -
     id: pod-mansarda-garaj
     name: Izolare pod garaj

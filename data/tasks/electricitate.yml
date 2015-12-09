@@ -15,7 +15,7 @@ tasks:
   -
     id: electricitate-instalatii
     name: "Montare instalații electrice (prin pereți)"
-    days: 3
+    days: 1
   -
     id: electricitate-panouri
     name: "Montare panouri de electricitate"

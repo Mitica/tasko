@@ -8,9 +8,9 @@ mixin taskDetails(task)
             img(src=member.picture, alt=member.id)
     .task-time.text-muted
       span.task-days.label.label-success= task.days
-      |  zile lucrătoare;  
+      |  zile lucrătoare
       if (task.level>1)
-        | Perioadă: 
+        | ; Perioadă: 
         if (task.days > 1)
           time= task.startDate.locale('ro').format('D MMMM')
             | ,  

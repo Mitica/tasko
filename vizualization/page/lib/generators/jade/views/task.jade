@@ -7,12 +7,56 @@
         h6= task.startDate.locale('ro').format('D MMMM')
           |  -  
           time= task.endDate.locale('ro').format('D MMMM')
+
+      - var specialDates = []
+      .calendar
+        .calendar-inner
+          .header
+            .calendar-cel L
+            .calendar-cel Ma
+            .calendar-cel Mi
+            .calendar-cel J
+            .calendar-cel V
+            .calendar-cel S
+            .calendar-cel D
+
+          - var date = task.startDate.clone()
+          - var count = 1
+          - date.add(-(date.isoWeekday()-1), 'days')
+          while (date.isBefore(task.endDate, 'day') || date.isSame(task.endDate, 'day'))
+            if (date.isBefore(task.startDate, 'day'))
+              .calendar-cel(class='no-day')= date.format('D')
+            else
+              if (tasko.calendar.isWorkingDate(date))
+                if (tasko.calendar.isPartialWorkingDate(date))
+                  .calendar-cel(class='partial-day')= date.format('D')
+                else
+                  .calendar-cel(class='working-day')= date.format('D')
+              else
+                if (tasko.calendar.specialDate(date))
+                  - specialDates.push(tasko.calendar.specialDate(date))
+                .calendar-cel(class='free-day')= date.format('D')
+            if (count%7===0)
+              br
+            - date.add(1, 'days')
+            - count++
+          while ((count-1)%7!==0)
+            .calendar-cel.no-day= date.format('D')
+            - date.add(1, 'days')
+            - count++
+          if (specialDates.length>0)
+            .special-dates
+              each item in specialDates
+                div
+                  spall= item.date.format('D')
+                    |  -  
+                    span.text-muted= item.name
     .col-sm-8
       h1.task-title= task.name
       +taskDetails(task)
       if (task.description)
         .task-summary.well.well-sm= task.description
-  br
-  if (task.tasks)
-    each subtask, subtaskIndex in task.tasks
-      include ./subtask.jade
+      br
+      if (task.tasks)
+        each subtask, subtaskIndex in task.tasks
+          include ./subtask.jade

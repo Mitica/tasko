@@ -1,0 +1,14 @@
+id: geamuri
+name: "Instalare geamuri"
+description: "Noi sau reprezentanții firmei de geamuri"
+prev: pod-mansarda
+team:
+  - tata
+  - dumitru
+  - sergiu
+
+tasks:
+  -
+    id: geamuri-montare
+    name: "Montare geamuri"
+    days: 2

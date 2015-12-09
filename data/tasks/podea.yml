@@ -1,0 +1,24 @@
+id: podea
+name: Montare podea
+description: "Montarea podelelor din lemn"
+prev: vopsire
+team:
+  - tata
+  - dumitru
+  - sergiu
+
+tasks:
+  -
+    id: podea-mansarda
+    name: "Montare podea la mansardă"
+    days: 4
+    tasks:
+      - id: podea-mansarda-protect
+        name: "Montare straturi protector: USB, PEE, etc."
+      - id: podea-mansarda-parchet
+        name: "Montare scândură/parchet"
+  -
+    id: podea-parter
+    name: "Montare podea la parter"
+    prev: podea-mansarda
+    days: 4

@@ -1,0 +1,32 @@
+id: tencuire-parter
+name: Tencuire parter
+description: Îndreparea pereților interiori cu un strat de mortar/ciment.
+days: 12
+prev: tencuire-mansarda
+team:
+  - tata
+  - dumitru
+  - sergiu
+
+tasks:
+  -
+    id: tencuire-parter-create-mortar
+    name: "Creare mortar: ciment, nisip, apă"
+    team:
+      - dumitru
+      - sergiu
+  -
+    id: tencuire-parter-nivepare
+    name: Calcul nivel și plasare profiluri metalice
+    team:
+      - tata
+      - sergiu
+  -
+    id: tencuire-parter-pereti
+    name: Tencuire pereți parter
+    days: 10
+  -
+    id: tencuire-parter-garaj
+    name: Tencuire pereți garaj
+    prev: tencuire-parter-pereti
+    days: 2

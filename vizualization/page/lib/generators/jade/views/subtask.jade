@@ -1,64 +1,12 @@
 .subtask
-  .row
-    .col-sm-4
-      - var isDiffCalendar = true
-      if (subtaskIndex > 0)
-        - var prevSubtask = task.tasks[subtaskIndex-1]
-        - isDiffCalendar = prevSubtask.startDate.format('YYYYMMDD') !== subtask.startDate.format('YYYYMMDD') || prevSubtask.endDate.format('YYYYMMDD') !== subtask.endDate.format('YYYYMMDD')
-      if (isDiffCalendar)
-        - var specialDates = []
-        .calendar
-          .calendar-inner
-            if (subtaskIndex===0)
-              .header
-                .calendar-cel L
-                .calendar-cel Ma
-                .calendar-cel Mi
-                .calendar-cel J
-                .calendar-cel V
-                .calendar-cel S
-                .calendar-cel D
+  h3.task-title= subtask.name
+  +taskDetails(subtask)
+  if (subtask.description)
+    .task-summary.well.well-sm= subtask.description
 
-            - var date = subtask.startDate.clone()
-            - var count = 1
-            - date.add(-(date.isoWeekday()-1), 'days')
-            while (date.isBefore(subtask.endDate, 'day') || date.isSame(subtask.endDate, 'day'))
-              if (date.isBefore(subtask.startDate, 'day'))
-                .calendar-cel(class='no-day')= date.format('D')
-              else
-                if (tasko.calendar.isWorkingDate(date))
-                  if (tasko.calendar.isPartialWorkingDate(date))
-                    .calendar-cel(class='partial-day')= date.format('D')
-                  else
-                    .calendar-cel(class='working-day')= date.format('D')
-                else
-                  if (tasko.calendar.specialDate(date))
-                    - specialDates.push(tasko.calendar.specialDate(date))
-                  .calendar-cel(class='free-day')= date.format('D')
-              if (count%7===0)
-                br
-              - date.add(1, 'days')
-              - count++
-            while ((count-1)%7!==0)
-              .calendar-cel.no-day= date.format('D')
-              - date.add(1, 'days')
-              - count++
-            if (specialDates.length>0)
-              .special-dates
-                each item in specialDates
-                  div
-                    spall= item.date.format('D')
-                      |  -  
-                      span.text-muted= item.name
-    .col-sm-8
-      h3.task-title= subtask.name
-      +taskDetails(subtask)
-      if (subtask.description)
-        .task-summary.well.well-sm= subtask.description
-
-      if (subtask.tasks)
-        ul.subtasks
-          each item in subtask.tasks
-            li
-              strong= item.name
+  if (subtask.tasks)
+    ul.subtasks
+      each item in subtask.tasks
+        li
+          strong= item.name
 

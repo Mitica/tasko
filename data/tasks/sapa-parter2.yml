@@ -1,5 +1,5 @@
 id: sapa-parter2
-name: "Parter: Șapă de beton (strat 2)"
+name: "Șapă parter (strat 2)"
 description: "Turnare șapă/strat de beton la parter al 2-lea strat."
 days: 3
 prev: sapa-mansarda

@@ -1,5 +1,5 @@
 id: sapa-garaj
-name: "Garaj: Șapă de beton"
+name: "Șapă garaj"
 description: "Turnare șapă/strat de beton gros."
 days: 1
 prev: sapa-parter1
