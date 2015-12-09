@@ -44,6 +44,23 @@ function getTaskLevel(task, tasksMap) {
 	return 1;
 }
 
+function getChildTasksDays(tasks) {
+	var serialDays = 0;
+	var paralelDays = 0;
+	var days;
+	tasks.forEach(function(task, index) {
+		days = getTaskDays(task);
+		if (task.prevTask) {
+			serialDays += days;
+			// console.log(task.id, 'has prev');
+		} else {
+			paralelDays = Math.max(days, paralelDays);
+			// console.log(task.id, 'has NO prev');
+		}
+	});
+	return serialDays + paralelDays;
+}
+
 function getTaskDays(task) {
 	if (task.parent) {
 		if (!task.days) {
@@ -54,12 +71,7 @@ function getTaskDays(task) {
 		return task.days;
 	}
 	if (task.tasks) {
-		var days = 0;
-		task.tasks.forEach(function(t) {
-			t.days = getTaskDays(t);
-			days += t.days;
-		});
-		return days;
+		return getChildTasksDays(task.tasks);
 	}
 	return 1;
 }
@@ -94,22 +106,18 @@ function getTaskTeam(task) {
 	return _.sortBy(task.team || []);
 }
 
-function normalizeTask(task, tasksMap) {
-	task.level = getTaskLevel(task, tasksMap);
-	task.days = getTaskDays(task);
-	task.team = getTaskTeam(task);
-
-	if (task.prev) {
-		task.prevTask = tasksMap[task.prev];
-		task.prevTask.nextTask = task;
-	}
-
-	// setTaskDates(config, task);
-}
-
 function normalizeTasks(tasks, tasksMap) {
 	tasks.forEach(function(task) {
-		normalizeTask(task, tasksMap);
+		if (task.prev) {
+			task.prevTask = tasksMap[task.prev];
+			task.prevTask.nextTask = task;
+		}
+	});
+
+	tasks.forEach(function(task) {
+		task.level = getTaskLevel(task, tasksMap);
+		task.team = getTaskTeam(task);
+		task.days = getTaskDays(task);
 	});
 
 	return tasks;
@@ -165,7 +173,7 @@ function setTaskDates(calendar, task) {
 			t.endDate = addDays(calendar, t.startDate, t.days - 1);
 			// console.log('t', t.id);
 			if (t.tasks) {
-				setTaskDates(config, t);
+				setTaskDates(calendar, t);
 			}
 		}
 	}

@@ -5,7 +5,6 @@ var taskoModel = require('tasko-model');
 var path = require('path');
 var md = require('./generators/md');
 var jade = require('./generators/jade');
-var path = require('path');
 var fs = require('fs');
 var marked = require('marked');
 

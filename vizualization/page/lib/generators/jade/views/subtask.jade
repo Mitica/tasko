@@ -52,29 +52,13 @@
                       span.text-muted= item.name
     .col-sm-8
       h3.task-title= subtask.name
-      .task-details.clearfix
-        if (subtask.team.length !== task.team.length)
-          ul.task-team.list-inline
-            each item in subtask.team
-              - var member = tasko.team.getMember(item)
-              li
-                img(src=member.picture, alt=member.id)
-        .task-time.text-muted
-          span.task-days.label.label-success= subtask.days
-          |  zile lucrătoare;  
-          | Perioadă: 
-          if (subtask.days > 1)
-            time= subtask.startDate.locale('ro').format('D MMMM')
-              | ,  
-              = subtask.startDate.locale('ro').format('dddd')
-            |  -  
-            time= subtask.endDate.locale('ro').format('D MMMM')
-              | ,  
-              = subtask.endDate.locale('ro').format('dddd')
-          else
-            time= subtask.startDate.locale('ro').format('D MMMM')
-              | ,  
-              = subtask.startDate.locale('ro').format('dddd')
+      +taskDetails(subtask)
       if (subtask.description)
         .task-summary.well.well-sm= subtask.description
+
+      if (subtask.tasks)
+        ul.subtasks
+          each item in subtask.tasks
+            li
+              strong= item.name
 

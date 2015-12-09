@@ -11,7 +11,20 @@ tasks:
   -
     id: canale-retea-masurari
     name: "Măsurări și marcare locuri de tăiat și spart."
-    days: 1
+    days: 2
+    tasks:
+      -
+        id: canale-retea-masurari-canalizare
+        name: "Canalizare"
+      -
+        id: canale-retea-masurari-apa
+        name: Apă caldă și rece
+      -
+        id: canale-retea-masurari-incalzire
+        name: Calorifere și țevi
+      -
+        id: canale-retea-masurari-electricitate
+        name: Electricitate
   -
     id: canale-retea-create
     name: "Creare canale de trecere pentru tețele"

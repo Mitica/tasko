@@ -9,17 +9,17 @@ var renderFile = Promise.promisify(require('jade').renderFile);
 var ncp = Promise.promisify(require('ncp').ncp);
 var path = require('path');
 
-var deleteFolder = function(path) {
-	if (fs.existsSync(path)) {
-		fs.readdirSync(path).forEach(function(file, index) {
-			var curPath = path + '/' + file;
+var deleteFolder = function(location) {
+	if (fs.existsSync(location)) {
+		fs.readdirSync(location).forEach(function(file, index) {
+			var curPath = location + '/' + file;
 			if (fs.lstatSync(curPath).isDirectory()) { // recurse
 				deleteFolder(curPath);
 			} else {
 				fs.unlinkSync(curPath);
 			}
 		});
-		fs.rmdirSync(path);
+		fs.rmdirSync(location);
 	}
 };
 

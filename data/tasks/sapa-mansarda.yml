@@ -1,0 +1,25 @@
+id: sapa-mansarda
+name: "Mansardă: Turnăm șapa de mortar"
+description: "Turnare șapă/strat de beton la mansardă"
+days: 2
+prev: test-retele
+team:
+  - tata
+  - dumitru
+  - sergiu
+
+tasks:
+  -
+    id: sapa-mansarda-create-beton
+    name: "Creare beton: ciment, nisip, apă"
+    team:
+      - dumitru
+      - sergiu
+  -
+    id: sapa-mansarda-nivepare
+    name: "Calcul nivel și plasare profiluri metalice"
+    team:
+      - tata
+  -
+    id: sapa-mansarda-turnare
+    name: "Turnare beton și nivelare"

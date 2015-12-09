@@ -18,6 +18,16 @@ h1.task-title {
 
 .task-index {
     text-align: center;
+    position: relative;
+}
+
+.task-index-line {
+    height:4px;
+    background-color: #ddd;
+    position: absolute;
+    top: 36%;
+    left: 25%;
+    right: 25%;
 }
 
 .task-index h1 {
@@ -27,6 +37,8 @@ h1.task-title {
     background-color: #eee;
     padding: 5px 20px;
     font-size: 340%;
+    border: 6px solid #fff;
+    position: relative;
 }
 
 .task-team {
@@ -103,7 +115,7 @@ h1.task-title {
 }
 
 .calendar-cel.working-day {
-    border-bottom: 4px solid #5cb85c;
+    border-bottom: 5px solid #5cb85c;
 }
 
 .calendar-cel.partial-day {
@@ -111,6 +123,10 @@ h1.task-title {
 }
 
 .calendar-cel.no-day {
-    border-color: #eee;
+    border-color: #f3f3f3;
     color: #f3f3f3;
+}
+
+ul.subtasks {
+    margin-top: 20px;
 }

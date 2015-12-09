@@ -10,7 +10,11 @@ team:
 tasks:
   -
     id: incalzire-tevi
-    name: "Montarea țevi pe podea și pereți."
+    name: "Montare țevi pe podea și pereți"
+    days: 3
+  -
+    id: incalzire-calorifere
+    name: "Montare calorifere"
     days: 3
   -
     id: incalzire-cazan

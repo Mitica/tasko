@@ -2,6 +2,7 @@
   .row
     .col-sm-4
       .task-index
+        .task-index-line
         h1= taskIndex+1
         - var startMonth = task.startDate.locale('ro').format('MMMM')
         - var endMonth = task.endDate.locale('ro').format('MMMM')
@@ -13,31 +14,10 @@
             = endMonth
     .col-sm-8
       h1.task-title= task.name
-      .task-details.clearfix
-        ul.task-team.list-inline
-          each item in task.team
-            - var member = tasko.team.getMember(item)
-            li
-              img(src=member.picture, alt=member.id)
-        .task-time.text-muted
-          span.task-days.label.label-success= task.days
-          |  zile lucrătoare;  
-          | Perioadă: 
-          if (task.days > 1)
-            time= task.startDate.locale('ro').format('D MMMM')
-              | ,  
-              = task.startDate.locale('ro').format('dddd')
-            |  -  
-            time= task.endDate.locale('ro').format('D MMMM')
-              | ,  
-              = task.endDate.locale('ro').format('dddd')
-          else
-            time= task.startDate.locale('ro').format('D MMMM')
-              | ,  
-              = task.startDate.locale('ro').format('dddd')
+      +taskDetails(task)
       if (task.description)
         .task-summary.well.well-sm= task.description
   br
   if (task.tasks)
     each subtask, subtaskIndex in task.tasks
-      include ./subtask
+      include ./subtask.jade

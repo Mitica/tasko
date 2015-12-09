@@ -1,0 +1,24 @@
+mixin taskDetails(task)
+  .task-details.clearfix
+    if (task.level===1 || task.team.length !== task.team.length)
+      ul.task-team.list-inline
+        each item in task.team
+          - var member = tasko.team.getMember(item)
+          li
+            img(src=member.picture, alt=member.id)
+    .task-time.text-muted
+      span.task-days.label.label-success= task.days
+      |  zile lucrătoare;  
+      | Perioadă: 
+      if (task.days > 1)
+        time= task.startDate.locale('ro').format('D MMMM')
+          | ,  
+          = task.startDate.locale('ro').format('dddd')
+        |  -  
+        time= task.endDate.locale('ro').format('D MMMM')
+          | ,  
+          = task.endDate.locale('ro').format('dddd')
+      else
+        time= task.startDate.locale('ro').format('D MMMM')
+          | ,  
+          = task.startDate.locale('ro').format('dddd')

@@ -1,0 +1,23 @@
+id: electricitate
+name: "Instalare electricitate"
+description: "Instalare rețele de electricitate și altele. Testare."
+prev: incalzire
+team:
+  - tata
+  - dumitru
+  - sergiu
+
+tasks:
+  -
+    id: electricitate-cablu
+    name: "Montare cablu pe podea și pereți"
+    days: 3
+  -
+    id: electricitate-instalatii
+    name: "Montare instalații electrice (prin pereți)"
+    days: 3
+  -
+    id: electricitate-panouri
+    name: "Montare panouri de electricitate"
+    days: 1
+    prev: electricitate-instalatii
