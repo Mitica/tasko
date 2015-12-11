@@ -10,6 +10,7 @@ var yaml = require('js-yaml');
 var createConfig = require('./config');
 var createTeam = require('./team');
 var createTasks = require('./tasks');
+var createResources = require('./resources');
 
 function getFileData(location, file) {
 	file = path.join(location, file);
@@ -53,17 +54,27 @@ function loadConfig(location) {
 		});
 }
 
-function loadTeam(location, config) {
+function loadTeam(location) {
 	return loadArray('team/*.{json,yml,yaml}', location)
 		.then(function(data) {
-			return createTeam(data, config);
+			return createTeam(data);
 		});
 }
 
-function loadTasks(location, config) {
+function loadTasks(location) {
 	return loadArray('tasks/*.{json,yml,yaml}', location)
 		.then(function(data) {
-			return createTasks(data, config);
+			return createTasks(data);
+		});
+}
+
+function loadResources(location) {
+	return Promise.props({
+			sizes: loadArray('resources/sizes/*.{json,yml,yaml}', location),
+			products: loadArray('resources/products/*.{json,yml,yaml}', location)
+		})
+		.then(function(data) {
+			return createResources(data);
 		});
 }
 
@@ -72,6 +83,7 @@ exports.load = function(location) {
 	return Promise.props({
 		config: loadConfig(location),
 		team: loadTeam(location),
-		tasks: loadTasks(location)
+		tasks: loadTasks(location),
+		resources: loadResources(location)
 	});
 };

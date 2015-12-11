@@ -23,3 +23,31 @@ mixin taskDetails(task)
           time= task.startDate.locale('ro').format('D MMMM')
             | ,  
             = task.startDate.locale('ro').format('dddd')
+      if (task.level==1)
+        if (task.amount && task.amount.money>0)
+          span ; 
+            span.label.label-danger= task.amount.money.toLocaleString('ro',{maximumFractionDigits: 0})
+            |  lei
+
+mixin taskResources(resources)
+  .panel.panel-default.resources
+    .panel-heading
+      h3.panel-title Resurse
+    .panel-body
+      each item in resources
+        .row
+          .col-sm-8
+            h5
+              a(href=item.product.url)= item.product.name
+            p Necesar: 
+              = item.size.value.toLocaleString('ro',{maximumFractionDigits: 1})
+              |  
+              = item.size.unit
+              | .  
+              span.label.label-info=item.amount.count.toLocaleString('ro', {maximumFractionDigits: 1})
+              |  bucăți;
+            p Cost: 
+              span.label.label-danger=item.amount.money.toLocaleString('ro', {maximumFractionDigits: 0})
+              |  lei 
+          .col-sm-4
+            img.product-picture(src=item.product.picture)

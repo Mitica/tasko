@@ -188,9 +188,43 @@ function setTasksDates(calendar, tasks) {
 	});
 }
 
+function setTaskResources(tasko, task) {
+	if (task.tasks) {
+		task.tasks.forEach(function(item) {
+			setTaskResources(tasko, item);
+		});
+	}
+	task.resources = task.resources || [];
+
+	task.resources.forEach(function(resource) {
+		if (_.isString(resource.product)) {
+			resource.product = tasko.resources.products.getById(resource.product);
+			resource.size = tasko.resources.sizes.getById(resource.size);
+			resource.amount = tasko.resources.amount(resource);
+			// console.log('resource cost', resource, resource.cost);
+		}
+	});
+
+	if (task.tasks) {
+		task.tasks.forEach(function(item) {
+			task.resources = task.resources.concat(item.resources);
+		});
+	}
+
+	task.amount = tasko.resources.amount(task.resources);
+}
+
+function setTasksResources(tasko) {
+	var tasks = tasko.tasks.getFirstLevelTasks();
+	tasks.forEach(function(task) {
+		setTaskResources(tasko, task);
+	});
+}
+
 module.exports = function(data) {
 	data = _.uniq(data, 'id');
 
+	var inited = false;
 	var tasks = [];
 	var tasksMap = {};
 
@@ -203,6 +237,15 @@ module.exports = function(data) {
 		get: function() {
 			return data;
 		},
+		init: function(tasko) {
+			if (inited) {
+				return;
+			}
+			console.log('initing tasks');
+			inited = true;
+			model.setDates(tasko.calendar);
+			setTasksResources(tasko);
+		},
 		getTasks: function() {
 			return tasks;
 		},
@@ -211,11 +254,11 @@ module.exports = function(data) {
 				level: level
 			});
 		},
-		getLevelFirstTasks: function() {
+		getFirstLevelTasks: function() {
 			return model.getTasksByLevel(1);
 		},
 		setDates: function(calendar) {
-			var list = model.getLevelFirstTasks();
+			var list = model.getFirstLevelTasks();
 			var initialList = list.filter(function(item) {
 				return !item.prev;
 			});
@@ -223,7 +266,7 @@ module.exports = function(data) {
 			setTasksDates(calendar, list);
 		},
 		sort: function(list) {
-			list = list || model.getLevelFirstTasks();
+			list = list || model.getFirstLevelTasks();
 			return _.sortBy(list, function(item) {
 				return item.startDate.format('YYYY-MM-DD');
 			});

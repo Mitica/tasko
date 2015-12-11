@@ -1,9 +1,9 @@
 #intro
   .intro-header
     h1=mainTask.name
-    h4=mainTask.startDate.locale('ro').format('DD MMMM')
+    h4=mainTask.startDate.locale('ro').format('D MMMM')
       |  -  
-      = mainTask.endDate.locale('ro').format('DD MMMM')
+      = mainTask.endDate.locale('ro').format('D MMMM')
   br
   br
   .row
@@ -29,4 +29,3 @@
       h4
         span.label.label-success= mainTask.team.length
         |  eroi
-

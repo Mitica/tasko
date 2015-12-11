@@ -1,6 +1,6 @@
 id: electricitate
 name: "Instalare electricitate"
-description: "Instalare rețele de electricitate și altele. Testare."
+description: "Instalare rețele de electricitate și altele."
 prev: incalzire
 team:
   - tata

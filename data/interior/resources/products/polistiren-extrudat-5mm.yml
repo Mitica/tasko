@@ -1,0 +1,15 @@
+id: polistiren-extrudat-5mm
+name: Polistiren extrudat 5mm
+stock:
+shop: supraten
+picture: http://supraten.md/i/products/88995.jpg
+url: http://supraten.md/ro/catalog/stroymaterialy/izolyatsionnyye_materialy/88995/default.aspx
+price:
+  value: 14
+  currency: MDL
+  per: product
+params:
+  unit: mm
+  length: 1200
+  width: 500
+  thickness: 5

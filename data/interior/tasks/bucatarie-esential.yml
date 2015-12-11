@@ -11,7 +11,7 @@ team:
 tasks:
   -
     id: bucatarie-esential-lavoar
-    name: "Montare lavoar temporar"
+    name: "Montare lavoar"
   -
     id: bucatarie-esential-aragaz
-    name: "Montare aragaz provizoriu"
+    name: "Montare aragaz"

@@ -1,6 +1,6 @@
 id: canalizare
 name: "Instalare canalizare"
-description: "Instalare rețea de canalizare și apă. Testare."
+description: "Instalare rețea de canalizare și apă."
 prev: canale-retea
 team:
   - tata

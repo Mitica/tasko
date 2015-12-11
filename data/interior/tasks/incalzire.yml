@@ -1,6 +1,6 @@
 id: incalzire
 name: "Instalare încălzire"
-description: "Instalare rețele de încălzire. Testare."
+description: "Instalare rețele de încălzire."
 prev: canalizare
 team:
   - tata
@@ -19,5 +19,6 @@ tasks:
   -
     id: incalzire-cazan
     name: "Montare cazan-gaz"
+    description: Specialiștii de la Romstal
     days: 2
     prev: incalzire-tevi

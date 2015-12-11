@@ -1,6 +1,7 @@
 id: sol
 name: Lucrări de sol
 description: "Canalizare, apă, nivelare sol."
+prev: tencuire-parter
 team:
   - tata
   - dumitru
@@ -14,12 +15,13 @@ tasks:
     days: 1
   -
     id: sol-apa
-    name: Aducerea țevei de apă până în casă.
-    description: Săpare șanț. Montare țavă la panoul de apa în baie la parter.
+    name: Aducerea țevei de apă până în casă
+    description: Săpare șanț. Sper că cu tractorașul. Montare țavă la panoul de apa în baie la parter.
     days: 1
     prev: sol-canalizare
   -
     id: sol-nivelare
     name: Marcare nivel și îndreptare sol parter
+    description: "Batere pământ cu aparat special."
     days: 1
     prev: sol-apa

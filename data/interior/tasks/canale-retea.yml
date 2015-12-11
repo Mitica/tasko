@@ -10,7 +10,7 @@ team:
 tasks:
   -
     id: canale-retea-masurari
-    name: "Măsurări și marcare locuri de tăiat și spart."
+    name: "Măsurări și marcare locuri de tăiat și spart"
     days: 1
     tasks:
       -
@@ -25,6 +25,9 @@ tasks:
       -
         id: canale-retea-masurari-electricitate
         name: Electricitate
+      -
+        id: canale-retea-masurari-ventilare
+        name: Ventilare
   -
     id: canale-retea-create
     name: "Creare canale de trecere pentru tețele"

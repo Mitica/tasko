@@ -1,0 +1,19 @@
+id: scara
+name: Montare scară
+description: "Montarea scara dintre etaje"
+prev: vopsire
+team:
+  - tata
+  - dumitru
+  - sergiu
+
+tasks:
+  -
+    id: scara-bara
+    name: "Fixare bară de protecție"
+    days: 1
+  -
+    id: scara-trepte
+    name: "Montare trepte"
+    prev: scara-bara
+    days: 1

@@ -1,22 +1,33 @@
 'use strict';
 
+var utils = require('./utils');
+var _ = utils._;
 var loader = require('./data/loader');
 var calendar = require('./calendar');
 
 function createModel(data) {
-	var model = {
-		calendar: calendar(data)
+	var tasko = {
+		calendar: calendar(data),
+		init: function() {
+			for (var prop in data) {
+				if (_.isFunction(data[prop].init)) {
+					data[prop].init(tasko);
+				}
+			}
+		}
 	};
 
 	for (var prop in data) {
-		model[prop] = data[prop];
+		tasko[prop] = data[prop];
 	}
 
-	model.tasks.setDates(model.calendar);
+	// tasko.tasks.setDates(tasko.calendar);
 
-	model.config.init(model);
+	// tasko.config.init(tasko);
+	//
+	tasko.init();
 
-	return model;
+	return tasko;
 }
 
 module.exports = function(location) {

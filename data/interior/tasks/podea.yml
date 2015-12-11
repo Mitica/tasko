@@ -1,7 +1,7 @@
 id: podea
 name: Montare podea
 description: "Montarea podelelor din lemn"
-prev: vopsire
+prev: scara
 team:
   - tata
   - dumitru

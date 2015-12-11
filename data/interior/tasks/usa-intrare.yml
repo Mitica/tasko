@@ -1,0 +1,9 @@
+id: usa-intrare
+name: Ușa intrare
+description: "Montare usă de la intrare"
+prev: gletuire2-parter
+days: 1
+team:
+  - tata
+  - dumitru
+  - sergiu

@@ -1,8 +1,8 @@
 id: sapa-parter1
 name: "Șapă parter (strat 1)"
-description: "Turnare șapă/strat de beton la parter primul strat."
+description: "Turnare șapă/strat de beton la parter, primul strat."
 days: 3
-prev: tencuire-parter
+prev: sol
 team:
   - tata
   - dumitru
@@ -12,6 +12,11 @@ tasks:
   -
     id: sapa-parter1-izolare
     name: "Montarea stratului de izolare: termo și hidro"
+    resources:
+      - product: linocrom
+        size: suprafata-parter-izolare
+      - product: polistiren-extrudat-5mm
+        size: suprafata-adancime-parter
   -
     id: sapa-parter1-create-beton
     name: "Creare beton: ciment, nisip, pietriș, apă"

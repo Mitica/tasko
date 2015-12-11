@@ -169,12 +169,19 @@ ul.subtasks {
     border-radius: 3px;
 }
 
-
-
 .intro-stats {
     padding-left: 30px;
 }
 
-.intro-stats h3,.intro-team h3 {
+.intro-stats h3,
+.intro-team h3 {
     margin-bottom: 20px;
+}
+
+.resources{
+    max-width: 80%;
+}
+.product-picture {
+    max-width: 100%;
+    height: 80px;
 }

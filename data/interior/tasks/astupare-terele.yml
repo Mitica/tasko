@@ -1,6 +1,6 @@
 id: astupare-retele
 name: "Astupare canale rețele"
-description: "Astupăm canalele de rețele: apa, canalizare, electricitate, încălzire"
+description: "Astupăm canalele de rețele: apă, canalizare, electricitate, încălzire"
 days: 1
 prev: test-retele
 team:

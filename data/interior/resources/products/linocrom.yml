@@ -1,0 +1,13 @@
+id: linocrom
+name: Linocrom
+shop: supraten
+picture: http://supraten.md/i/products/61262.jpg
+url: http://supraten.md/ro/catalog/otdelocinie-materiali/ghidroizoleatiea/61262/default.aspx
+price:
+  value: 310
+  currency: MDL
+  per: product
+params:
+  unit: m
+  width: 1
+  length: 10

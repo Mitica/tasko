@@ -1,8 +1,7 @@
 id: tencuire-mansarda
 name: Tencuire mansardă
-description: Îndreparea pereților interiori cu un strat de mortar/ciment.
+description: Îndreptarea pereților interiori cu un strat de mortar/ciment.
 days: 6
-prev: sol
 team:
   - tata
   - dumitru
